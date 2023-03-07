@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" 
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{navbar}">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link th:rel="stylesheet" th:href="@{/bootstrap.min.css}">
+<script type="text/javascript" th:src="@{/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{/jquery-3.6.1.js}"></script>
+<style>
+.h{
+margin-right:10px;
+ margin-left:10px;
+  margin-bottom: 5px; 
+  margin-top:10px;
+  text-align:center;
+}
+.table{
+margin-right:10px;
+ margin-left:10px;
+  margin-bottom: 5px; 
+  margin-top:10px;
+  max-width:1120px;
+}
+a{
+text-decoration:none;
+}
+.colo{
+color:white;
+}
+
+
+
+</style>
+
+</head>
+<body>
+<div layout:fragment="content">
+<div>
+<h2 class="h">Liste des Societés </h2>
+   
+ <button type="button" class="btn btn-primary" ><i class="fa-solid fa-circle-plus" style="padding-right:20px;"></i> <a class="colo" th:href="@{/addsoct}">Add new</a></button>
+       
+   
+	<table class="table">
+	<thead>
+	<tr> <th>#</th> <th>Nom Societe</th>
+	  <th>Description</th>
+	  <th>Email</th>
+	  
+	  <!--  <th>Image</th> -->
+		 <th>Action</th> </tr>	
+    </thead>
+    <tbody>
+	<tr th:each="soct:${societes}">
+	<td></td>
+	<td th:text=${soct.nomsociete}></td>
+	<td th:text=${soct.email}></td>
+	 <td th:text=${soct.description}></td>
+	<!-- <td th:text=${soct.image}></td>-->
+	<!--<td th:text=${soct.prix}></td>-->
+  <td><a th:href="@{/societe/new/{id}(id=${soct.id})}" >Modifier</a> |  <a th:href="@{/societe/delete/{id}(id=${soct.id})}">delete</a> </td>
+	</tr></tbody>
+	</table>
+</div>
+</div>
+</body>
+</html> 

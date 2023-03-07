@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{navbar}">
+<head>
+  <link rel="stylesheet"  th:href="@{/bootstrap.min.css}">
+  <script type="text/javascript" th:src="@{/bootstrap.min.js}"></script>
+  <script type="text/javascript" src="@{/jquery-3.6.1.js}"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    .btn1{
+      font-size: 15px;
+      background-color:#d3dbe1 ;
+      color:#131f49 ;
+    }  .cellulef{
+         background-color:#f69000;
+         color:#fff;
+         font-family:" open sans",sans-serif;
+         font-size: 17px;
+       }
+    .ajouter{
+      background-color:#003048;
+      color: #fff;
+      padding: 10px 10px;
+      font-size: 24px;
+      border-radius:7px;
+      transition: 0.3S;
+      font-weight:bold ;
+      font-family:'Roboto Slab';
+      text-decoration: none;  border: none;
+      outline: 4px solid transparent;
+    }
+    .ajouter:hover{
+      background-color:#95b6b0;
+      transition:0.30ms;
+      font-family:'Roboto Slab';
+      color: #153e5c;
+      padding: 10px 10px;
+    }
+    .ajouter:focus{
+      outline: 4px solid red;
+    }
+  </style>
+  <meta charset="UTF-8">
+  <title>Societe</title>
+</head>
+<body>
+<div layout:fragment="content">
+  <div class="card shadow p-3 mb-5 bg-body rounded ">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-14">
+          <h2 class="d-flex flex-row justify-content-end font-semibold text-xl leading-tight fw-bold" style="text-shadow: 4px 4px 5px #a3a3a3;color:#728a8d;font-size:28px">
+           <!-- <div>
+              <a th:href="@{/adddem}" class="me-2" style="text-decoration: none">
+                <button type="button" class="ajouter"> Ajouter <i class="fa fa-plus-circle" ></i></button>
+              </a>
+            </div>-->
+          </h2>
+          <table class="table ">
+            <thead class="thead-light">
+            <tr class="cellule">
+              <th scope="col">Ville depart</th>
+              <th scope="col">Heure depart</th>
+              <th scope="col">Ville arrivee</th>
+              <th scope="col">Heure arrivee</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="cellule " th:each="de:${Demandes}">
+              <td th:text="${de.villedepart}"></td>
+              <td th:text="${de.heuredepart}"></td>
+              <td th:text="${de.villearrivee}"></td>
+              <td th:text="${de.heurearrivee}"></td>
+            </tr>
+            </tbody>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

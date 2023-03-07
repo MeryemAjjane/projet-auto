@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+	<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<link rel="stylesheet"  th:href="@{/bootstrap.min.css}">
+		<script type="text/javascript" th:src="@{/bootstrap.min.js}"></script>
+		<script type="text/javascript" src="@{/jquery-3.6.1.js}"></script>
+		<link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css}">
+		<meta charset="UTF-8">
+		<title>Insert title here</title><style>
+		.btn2 {
+			background-color:#153e5c;
+			border: none;
+			color: #FFF;
+			padding: 10px 10px;
+			font-size: 1.5rem;
+			cursor: pointer;
+			border-radius: 7px;
+			transition: 0.3S;
+			font-family:'Roboto Slab';
+			text-decoration: none;
+		}
+	</style>
+	</head>
+	<body>
+	<x-slot name="header">
+		<h2 class="font-semibold text-xl mb-2 leading-tight fw-bold" style="text-shadow: 4px 4px 5px #a3a3a3;color:#a45e5f;font-size:28px">
+			Societe
+		</h2>
+	</x-slot>
+	<div class="container  p-3">
+		<div class="row justify-content-center">
+			<div class="col-md-10">
+				<div class="card shadow p-3 mb-5 bg-body rounded">
+					<div class="card-body ">
+						<div class="row">
+							<div class="col-md-12 ">
+								<div class="d-flex flex-row justify-content-between align-items-center  pb-2">
+									<h3 class="text-secondary border-bottom mb-3 p-2">
+										<i class="fa fa-plus" style="font-size:30px;color:#a45e5f"></i> modifier la societé
+
+									</h3>
+								</div>
+								<form th:action="@{/societe/{id} (id=${societe.id})}" method="post" th:object="${societe}">
+									<div class="form-group col-md-8" style="padding-left: 40px">
+										<label
+												for="nomsociete"
+												class="col-form-label"
+												style=" font-size:19px">Nom de societé :
+										</label><br>
+										<input
+												name="nomsociete"
+												type="text"
+												class="form-control "
+												id="nomsociete"
+												th:field="*{nomsociete}"
+												style="padding: 8px; font-size:20px;"
+												placeholder="Nom de societé "><br>
+									</div>
+									<div class="form-group col-md-8" style="padding-left: 40px">
+										<label
+												for="emailsociete"
+												class="col-form-label"
+												style=" font-size:19px">Email de societé :
+										</label><br>
+										<input
+												name="emailsociete"
+												type="text"
+												class="form-control "
+												id="emailsocite"
+												th:field="*{email}"
+												style="padding: 8px; font-size:20px;"
+												placeholder="Email de la societé"><br>
+									</div>
+									
+									<!--  <div class="form-group col-md-6" style="padding-left: 40px">
+										<label
+												for="image" class="col-form-label "
+												style=" font-size:19px">Image de la societe <em style="color:#01555f"></em> : </label>
+										<input
+												name="image"
+												type="file"
+												class="form-control "
+												id="image"
+												th:field="*{image}"
+												style="padding: 8px; font-size:20px;"
+										><br>
+									</div>-->
+									<div class="form-group col-md-6" style="padding-left: 40px">
+										<label for="description" class="col-form-label" style=" font-size:19px">Description : </label><br>
+										<textarea name="description"
+												  class="form-control "
+												  cols="35"
+												  rows="8"
+												  id="description"
+												  th:field="*{description}"
+												  style="padding: 13px; font-size:20px;"
+												  placeholder="description"></textarea>
+									</div><br><br>
+									<div class="form-group  pull-right" >
+										<button type="submit " class="btn2 "> Enregistrer <i class="fa fa-save" style="color: #efc8b1"></i></button>
+										<button class="btn2 "><a type="button" style="text-decoration: none;  color:white" th:href="@{/}"  >Annuler <i class="fa fa-times" style="color: #efc8b1"></i></a></button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</x-app-layout>
+	</body>
+	</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h2>modifier un article article</h2>
+<form th:action="@{/societe/{id} (id=${societe.id})}" method="post" th:object="${societe}">
+	<table>
+	
+	<tr> <td>Nom de Societe</td> <td><input type="text" th:field="*{nomsociete}"  /></td></tr>
+		<tr> <td>Description de Societe</td> <td><input type="text" th:field="*{description}"  /></td></tr>
+		<tr> <td>image</td> <td><input type="text" th:field="*{image}"  /></td></tr>	
+		
+		<tr><td colspan="2"><input type="submit" value="Modifier" /></td></tr>
+	</table>
+	
+</form>
+
+
+</body>
+</html>-->
